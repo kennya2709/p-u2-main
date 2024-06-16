@@ -1,0 +1,40 @@
+<h2 mat-dialog-title *ngIf="!data">Agregar Producto</h2>
+<h2 mat-dialog-title *ngIf="data">Editar Producto</h2>
+<mat-dialog-content>
+<form [formGroup]="formGroup">
+  <div class="example-container">
+    <mat-form-field>
+      <mat-label>NOMBRE</mat-label>
+      <input matInput placeholder="NOMBRE" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>CODIGO</mat-label>
+      <input matInput placeholder="CODIGO" formControlName="code">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>CATEGORIA</mat-label>
+      <input matInput placeholder="CATEGORIA" formControlName="category">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>PRECIO</mat-label>
+      <input matInput placeholder="PRECIO" formControlName="price">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>DESCRIPCION</mat-label>
+      <input matInput placeholder="DESCRIPCION" formControlName="description">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>CANTIDAD</mat-label>
+      <input matInput placeholder="CANTIDAD" formControlName="amount">
+    </mat-form-field>
+  </div>
+</form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button (click)="save()">Guardar</button>
+  <button mat-raised-button color="warn" mat-dialog-close="true">Cancelar</button>
+</mat-dialog-actions>
