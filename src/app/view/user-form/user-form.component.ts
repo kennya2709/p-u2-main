@@ -1,9 +1,9 @@
-// src/app/user-form/user-form.component.ts
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/model/user'; // Ajusta la ruta según tu estructura
 import { UserService } from 'src/app/service/user.service.service';
+
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
@@ -26,23 +26,17 @@ export class UserFormComponent implements OnInit {
 
   initForm(): void {
     this.userForm = this.formBuilder.group({
+      _id: [this.data?._id || ''],
       username: [this.data?.username || '', Validators.required],
       email: [this.data?.email || '', [Validators.required, Validators.email]],
-      phone: [this.data?.phone || '', Validators.required],
-      password: ['', Validators.required], // Password should be initialized as empty and required
+      phone: [this.data?.phone || ''],
+      password: [this.data?.password || ''], // Incluye el campo password si es necesario
       name: [this.data?.name || ''],
       lastName: [this.data?.lastName || ''],
-      role: [this.data?.role || '', Validators.required],
-      deleteDate: [this.data?.deleteDate ? new Date(this.data.deleteDate) : null],
-      status: [this.data?.status !== undefined ? this.data.status : true, Validators.required],
-      idClient: [this.data?.idClient || '']
+      role: [this.data?.role || ''],
+      deleteDate: [this.data?.deleteDate || ''], // Incluye el campo deleteDate si es necesario
+      status: [this.data?.status || false] // Incluye el campo status si es necesario
     });
-
-    // If updating a user, password is not required unless it's being changed
-    if (this.data && this.data._id) {
-      this.userForm.get('password')?.clearValidators();
-      this.userForm.get('password')?.updateValueAndValidity();
-    }
   }
 
   save(): void {
@@ -50,7 +44,7 @@ export class UserFormComponent implements OnInit {
       const formData = this.userForm.value;
       if (this.data && this.data._id) {
         // Editar usuario existente
-        this.userService.updateUser(formData).subscribe(
+        this.userService.updateUser(formData._id, formData).subscribe(
           updatedUser => {
             console.log('Usuario actualizado:', updatedUser);
             this.dialogRef.close(true);

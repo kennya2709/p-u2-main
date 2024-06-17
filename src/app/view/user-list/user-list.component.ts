@@ -1,13 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { User } from 'src/app/model/user';
+import { User } from 'src/app/model/user'; // Asegúrate de importar correctamente el modelo de usuario
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmacionComponent } from '../confirmacion/confirmacion.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { UserFormComponent } from '../user-form/user-form.component'; // Asegúrate de importar el componente correcto
+import { UserFormComponent } from '../user-form/user-form.component';
 import { UserService } from 'src/app/service/user.service.service';
-
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -15,7 +14,7 @@ import { UserService } from 'src/app/service/user.service.service';
 })
 export class UserListComponent implements OnInit {
   userList: User[] = [];
-  displayedColumns: string[] = ['_id', 'username', 'email', 'phone', 'name', 'lastName', 'role', 'actions'];
+  displayedColumns: string[] = ['_id', 'username', 'email', 'phone', 'name', 'lastName', 'role', 'status', 'actions'];
   dataSource!: MatTableDataSource<User>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
