@@ -21,6 +21,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeleteProductComponent } from './view/delete-product/delete-product.component';
 import { ConfirmacionComponent } from './view/confirmacion/confirmacion.component';
+import { UserListComponent } from './view/user-list/user-list.component';
+import { UserFormComponent } from './view/user-form/user-form.component';
+import { AddUserComponent } from './view/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { ConfirmacionComponent } from './view/confirmacion/confirmacion.componen
     ListaProductosComponent,
     FormProductComponent,
     DeleteProductComponent,
-    ConfirmacionComponent
+    ConfirmacionComponent,
+    UserListComponent,
+    UserFormComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
