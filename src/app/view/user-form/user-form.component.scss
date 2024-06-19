@@ -1,0 +1,32 @@
+.user-form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+  }
+  
+  .form-check-input {
+    margin-top: 0.3rem;
+  }
+  
+  .btn-primary {
+    margin-top: 1rem;
+  }
+  

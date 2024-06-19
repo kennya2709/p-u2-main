@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { User } from 'src/app/model/user'; // Asegúrate de importar correctamente el modelo de usuario
+import { User } from 'src/app/model/user';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmacionComponent } from '../confirmacion/confirmacion.component';
 import { MatTableDataSource } from '@angular/material/table';
@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { UserFormComponent } from '../user-form/user-form.component';
 import { UserService } from 'src/app/service/user.service.service';
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -48,6 +49,19 @@ export class UserListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'success') {
         this.loadUsers(); // Actualizar la lista después de agregar un usuario
+      }
+    });
+  }
+
+  editUser(user: User) {
+    const dialogRef = this.dialog.open(UserFormComponent, {
+      width: '400px', // Ajusta el ancho según tus necesidades
+      data: user // Pasar los datos del usuario al formulario
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'success') {
+        this.loadUsers(); // Actualizar la lista después de editar un usuario
       }
     });
   }
