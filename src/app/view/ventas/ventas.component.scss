@@ -1,0 +1,26 @@
+.ventas-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan a la siguiente fila */
+  }
+  
+  .productos {
+    flex: 3; /* Ocupa el 75% del ancho disponible */
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas de producto se envuelvan */
+    justify-content: space-around; /* Distribuye las tarjetas de producto uniformemente */
+  }
+  
+  .producto-card {
+    width: calc(25% - 20px); /* Calcula el ancho de cada tarjeta de producto */
+    margin: 10px; /* Espacio entre las tarjetas */
+  }
+  
+  .orden {
+    flex: 1; /* Ocupa el 25% del ancho disponible */
+    width: 300px; /* Ancho fijo de la sección de detalles de la orden */
+    position: sticky; /* Posición pegajosa */
+    top: 20px; /* Espacio desde la parte superior */
+    align-self: flex-start; /* Alinea la sección al inicio del contenedor */
+    padding-left: 20px; /* Espacio a la izquierda para separar de las tarjetas */
+  }
+  

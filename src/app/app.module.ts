@@ -28,7 +28,8 @@ import { EditUserDialogComponent } from './view/edit-user-dialog/edit-user-dialo
 import { LoginComponent } from './view/login/login.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { VentasComponent } from './view/ventas/ventas.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     UserFormComponent,
     AddUserComponent,
     EditUserDialogComponent,
-    LoginComponent
+    LoginComponent,
+    VentasComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatSnackBarModule 
+    MatSnackBarModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
