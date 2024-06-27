@@ -1,11 +1,9 @@
-
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service.service';
-
+import { AuthService } from 'src/app/service/service/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,7 +17,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private authService: AuthService // Inyectar AuthService
   ) { }
 
   ngOnInit(): void {
@@ -42,8 +41,10 @@ export class LoginComponent implements OnInit {
             duration: 3000,
             panelClass: ['success-snackbar']
           });
+          // Guardar el token en el local storage
+          this.authService.login(response.token);
           // Redirigir o realizar otras acciones necesarias
-          this.router.navigate(['/list-product']);
+          this.router.navigate(['/product']);
         },
         (error: any) => {
           console.error('Login failed:', error);

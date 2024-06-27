@@ -31,6 +31,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { VentasComponent } from './view/ventas/ventas.component';
 import { MatSelectModule } from '@angular/material/select';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { MatSelectModule } from '@angular/material/select';
     EditUserDialogComponent,
     LoginComponent,
     VentasComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -66,6 +68,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     MatSnackBarModule,
     MatSelectModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
