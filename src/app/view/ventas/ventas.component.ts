@@ -33,9 +33,14 @@ export class VentasComponent implements OnInit {
   ngOnInit(): void {
     this.actualizarTotales();
   }
-  
+
   agregarProducto(producto: Producto): void {
     this.carrito.push(producto);
+    this.actualizarTotales();
+  }
+
+  eliminarProducto(index: number): void {
+    this.carrito.splice(index, 1);
     this.actualizarTotales();
   }
 
